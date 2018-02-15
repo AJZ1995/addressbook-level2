@@ -20,7 +20,7 @@ public class Email extends Contact{
      */
     public Email(String email, boolean isPrivate) throws IllegalValueException {
         super(email.trim(),isPrivate);
-        if (!isValidEmail(trimmedEmail)) {
+        if (!isValidEmail(this.value)) {
             throw new IllegalValueException(MESSAGE_EMAIL_CONSTRAINTS);
         }
     }

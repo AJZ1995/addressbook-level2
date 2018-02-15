@@ -18,8 +18,8 @@ public class Phone extends Contact {
      * @throws IllegalValueException if given phone string is invalid.
      */
     public Phone(String phone, boolean isPrivate) throws IllegalValueException {
-        suepr(phone.trim(), isPrivate);
-        if (!isValidPhone(trimmedPhone)) {
+        super(phone.trim(), isPrivate);
+        if (!isValidPhone(this.value)) {
             throw new IllegalValueException(MESSAGE_PHONE_CONSTRAINTS);
         }
     }
