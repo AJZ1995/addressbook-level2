@@ -1,5 +1,6 @@
 package seedu.addressbook.data.person;
 
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -120,6 +121,20 @@ public class UniquePersonList implements Iterable<Person> {
         if (!personFoundAndDeleted) {
             throw new PersonNotFoundException();
         }
+    }
+
+    /**
+     * Sort all person in list
+     */
+    public void sort()
+    {
+        Collections.sort(internalList, new Comparator<Person>()
+        {
+            @Override
+            public int compare(Person o1, Person o2){
+                return (o1.getName().toString().toUpperCase()).compareTo(o2.getName().toString().toUpperCase());
+            }
+        });
     }
 
     /**

@@ -2,6 +2,7 @@ package seedu.addressbook.commands;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.lang.*;
 
 import seedu.addressbook.data.exception.IllegalValueException;
 import seedu.addressbook.data.person.Address;
@@ -15,7 +16,7 @@ import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 
 /**
- * Adds a person to the address book.
+ * Adds a person to the address book in alphabetical order.
  */
 public class AddCommand extends Command {
 
@@ -67,6 +68,7 @@ public class AddCommand extends Command {
     public CommandResult execute() {
         try {
             addressBook.addPerson(toAdd);
+            addressBook.sort();
             return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
         } catch (UniquePersonList.DuplicatePersonException dpe) {
             return new CommandResult(MESSAGE_DUPLICATE_PERSON);
