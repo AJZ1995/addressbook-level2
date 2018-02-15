@@ -57,12 +57,12 @@ Format: `list`
 Finds persons whose names contain any of the given keywords.<br>
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
-> The search is case sensitive, the order of the keywords does not matter, only the name is searched, 
+> The search is case insensitive, the order of the keywords does not matter, only the name is searched,
 and persons matching at least one keyword will be returned (i.e. `OR` search).
 
 Examples: 
 * `find John`<br>
-  Returns `John Doe` but not `john`
+  Returns `John Doe` and `john`
 * `find Betsy Tim John`<br>
   Returns Any person having names `Betsy`, `Tim`, or `John`
 
@@ -126,6 +126,9 @@ There is no need to save manually.
 #### Changing the save location
 Address book data are saved in a file called `addressbook.xml` in the project root folder.
 You can change the location by specifying the file path as a program argument.
+
+#### Added sort command
+Display a list of every person in addressbook in alphabetical order
 
 Example: 
 * `java seedu.addressbook.Main mydata.xml`
